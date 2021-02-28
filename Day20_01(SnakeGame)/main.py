@@ -1,16 +1,32 @@
-import turtle as t
 from turtle import Screen, Turtle
-import random
 import time
 from snake import Snake
+from food import Food
+from scoreboard import ScoreBoard
 
 screen = Screen()
-screen.tracer(0)
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snake Game")
+screen.tracer(0)
+
+def draw_border():
+    border = Turtle()
+    border.hideturtle()
+    border.color("white")
+    border.penup()
+    border.goto(-280, 280)
+    border.pendown()
+    border.goto(280, 280)
+    border.goto(280, -280)
+    border.goto(-280, -280)
+    border.goto(-280, 280)
+
 
 snake = Snake()
+food = Food()
+scoreboard = ScoreBoard()
+draw_border()
 
 screen.listen()
 screen.onkeypress(fun=snake.move_up,     key="Up")
@@ -26,12 +42,22 @@ while game_on:
     screen.update()
     snake.move()
 
+    # Detect collision with Food
+    if snake.head.distance(food) <= 15:
+        food.refresh()
+        scoreboard.increase_score()
+        snake.eats_food()
 
+    # Detect collision with wall
+    if snake.detect_wall_collision():
+        game_on = False
+        scoreboard.game_over()
+        print("Oops.. Sorry! Game Over!")
 
-
-
-
-
-
+    # Detect collision with tail
+    for block in snake.blocks[1:]:
+        if snake.head.distance(block) < 10:
+            game_on = False
+            scoreboard.game_over()
 
 screen.exitonclick()
