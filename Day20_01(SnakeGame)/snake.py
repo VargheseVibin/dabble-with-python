@@ -8,7 +8,7 @@ LEFT = 180
 RIGHT = 0
 
 
-class Snake:
+class Snake(Turtle):
     def __init__(self):
         self.blocks = []
         for coordinate in STARTING_COORDINATES:
