@@ -5,11 +5,12 @@ UP = 90
 DOWN = 270
 MOVEDISTANCE = 20
 
+
 class Paddle(Turtle):
-    def __init__(self):
+    def __init__(self, xp, yp):
         super().__init__()
-        self.x_pos = 350
-        self.y_pos = 0
+        self.x_pos = xp
+        self.y_pos = yp
         self.penup()
         self.create_paddle()
 
