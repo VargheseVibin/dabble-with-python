@@ -37,6 +37,4 @@ calc_button.config(padx=10, pady=10)
 
 
 
-
-
 window.mainloop()
