@@ -8,11 +8,10 @@ KOCHI_LON = 76.318122
 API_KEY = "*****************************"
 
 # Twilio Details
-account_sid = "AC*****************************
-auth_token = "*****************************
+account_sid = "AC*****************************"
+auth_token = "*****************************"
 
 client = Client(account_sid, auth_token)
-
 
 weather_parms = {
     "lat": KOCHI_LAT,
@@ -32,7 +31,6 @@ for wthr_dt_hour in weather_data["hourly"][0:12]:
         if weather_type["id"] < 700:
             it_will_rain = True
 
-
 if it_will_rain:
     client = Client(account_sid, auth_token)
     message = client.messages \
@@ -44,5 +42,3 @@ if it_will_rain:
     print(message.status)
 else:
     print("No Rain Forecast for the next 12 hours")
-
-
