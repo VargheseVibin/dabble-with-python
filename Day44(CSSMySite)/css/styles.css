@@ -1,0 +1,30 @@
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.top-container {
+    background-color: #c6ebc9;
+}
+
+.middle-container {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+}
+
+.bottom-container {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+.myname {
+    margin-top: 0px;
+}
+
+.program {
+    text-decoration: underline;
+    background-color: gold;
+}
